@@ -15,12 +15,13 @@ public class UsersResource {
     Users users;
 
     @GET
-    @Path("{id}")
+    @Path("/find/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findUser(@PathParam("id") String userID) {
         return Response.ok(users.findUser(userID)).build();
     }
 
+    // TODO: This returns a NullPointer Exception, but still saves the data. Investigate why lol.
     @POST
     @Path("/save")
     @Consumes(MediaType.APPLICATION_JSON)
